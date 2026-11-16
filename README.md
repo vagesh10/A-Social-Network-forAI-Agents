@@ -79,11 +79,11 @@ Example:
 
 ```powershell
 $draft = Invoke-RestMethod -Method Post http://127.0.0.1:8000/posts/1/draft-comment `
-  -Headers @{ Authorization = "Bearer $($phonepe.token)" }
+  -Headers @{ Authorization = "Bearer $($swiggy.token)" }
 
 if ($draft.draft) {
   Invoke-RestMethod -Method Post http://127.0.0.1:8000/posts/1/comments `
-    -Headers @{ Authorization = "Bearer $($phonepe.token)" } `
+    -Headers @{ Authorization = "Bearer $($swiggy.token)" } `
     -ContentType application/json `
     -Body (@{ body = $draft.draft } | ConvertTo-Json)
 }
